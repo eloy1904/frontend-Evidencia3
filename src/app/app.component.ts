@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { cineService } from './cine/cine.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'evidencia-3';
+  
+  cines:any;
+  constructor(public cine: cineService){}
+
+  ngOnInit(){
+    this.cine.getCine().subscribe(
+      (r) =>{this.cine = r; console.log(r)},
+      (e) =>{this.cine = e; console.log(e)}
+    )
+  }
 }
