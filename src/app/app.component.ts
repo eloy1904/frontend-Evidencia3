@@ -13,8 +13,8 @@ export class AppComponent {
 
   ngOnInit(){
     this.cine.getCine().subscribe(
-      (r) =>{this.cine = r; console.log(r)},
-      (e) =>{this.cine = e; console.log(e)}
+      (r) =>{this.cines = r; console.log(r)},
+      (e) =>{console.error(e)}
     )
   }
 }
